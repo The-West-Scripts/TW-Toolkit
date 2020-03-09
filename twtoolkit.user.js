@@ -658,10 +658,9 @@
     },
     critHits: {
       init: function() {
-        document.styleSheets[0].insertRule('.cemetery .fancytable  .row_head .battle_cri span {background: url("' + TWToolkit.icons.crithits + '");height: 17px;width: 17px;}');
-        document.styleSheets[0].insertRule('.cemetery .fancytable .battle_cri{width: 18px;}');
-        document.styleSheets[0].insertRule('.cemetery .fancytable  .row_head .battle_gho span {background: url("' + TWToolkit.icons.playdeadcount + '");height: 17px;width: 17px;}');
-        document.styleSheets[0].insertRule('.cemetery .fancytable .battle_gho{width: 18px;}');
+        document.styleSheets[0].insertRule('.cemetery .fancytable  .row_head .battle_cri span {background: url("' + TWToolkit.icons.crithits + '");height: 17px;width: 16px;}');
+        document.styleSheets[0].insertRule('.cemetery .fancytable .battle_cri, .cemetery .fancytable .battle_gho {width: 18px;}');
+        document.styleSheets[0].insertRule('.cemetery .fancytable  .row_head .battle_gho span {background: url("' + TWToolkit.icons.playdeadcount + '");height: 17px;width: 16px;}');
         document.styleSheets[0].insertRule(".cemetery #battle_stat.fancytable div.battle_tow {width: 60px !important;}");
         var inject1 = TWToolkit.prepareInjection(CemeteryWindow.showStatInit.toString(), ['.appendToThCell("head","battle_nam"'], [0], [".addColumn('battle_cri',{sortBy:'crithits'}).appendToThCell('head','battle_cri',TWToolkit.lang.fbcemetery_head_cri,'&nbsp;').addColumn('battle_gho',{sortBy:'playdeadcount'}).appendToThCell('head','battle_gho',TWToolkit.lang.fbcemetery_head_gho,'&nbsp;')"]);
         var inject2 = TWToolkit.prepareInjection(CemeteryWindow.showStatUpdateTable.toString(), [";CemeteryWindow.table.buildRow('battlestat tw_red'", ";CemeteryWindow.table.buildRow('battlestat tw_blue'"], [0, 0], [";tmpCells['battle_cri']=rd.charclass==1?rd.crithits:'-';tmpCells['battle_gho']=rd.charclass==0?rd.playdeadcount:'-'", ";tmpCells['battle_cri']=rd.charclass==1?rd.crithits:'-';tmpCells['battle_gho']=rd.charclass==0?rd.playdeadcount:'-'"]);
